@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  clickhouse:
+    image: yandex/clickhouse-server:20.8.7.15
+    volumes:
+      - ./resources/init:/docker-entrypoint-initdb.d
+      - ./resources/queries:/opt/queries
+    tmpfs:
+      - /var/lib/clickhouse
+
+  redis:
+    image: redis:6.0.9
