@@ -13,13 +13,13 @@ The `Makefile` is self documented. Type `make help` to get its content:
 
 ```txt
 up                             Starts all the containers required run the demo
-down                           Shuts down all the containers and removes their volume
 redis-insert-currency-rates    Inserts in Redis exchange rates
 redis-read-currency-rates      Reads from Redis the exchange rates
 clickhouse-insert-quote        Inserts in ClickHouse random data to trigger the materialized views
 clickhouse-read-exchange-rate  Reads from ClickHouse the data in the dictionary which points to Redis
 clickhouse-read-quote          Reads from ClickHouse the data stored by the materialized view
 clickhouse-read-aggregation    Queries basic aggregation over quotes in euros
+down                           Shuts down all the containers and removes their volume
 ```
 
 Execute the commands in this order to run the demo.
