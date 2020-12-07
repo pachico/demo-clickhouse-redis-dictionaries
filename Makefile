@@ -3,13 +3,8 @@
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-# Interacting with docker-compose
-
 up: ## Starts all the containers required run the demo
 	docker-compose up -d
-
-down: ## Shuts down all the containers and removes their volume
-	docker-compose down --volumes --remove-orphans
 
 # Interacting with Redis
 
@@ -32,3 +27,6 @@ clickhouse-read-quote: ## Reads from ClickHouse the data stored by the materiali
 
 clickhouse-read-aggregation: ## Queries basic aggregation over quotes in euros
 	docker-compose exec clickhouse bash -c "clickhouse-client --query=\"SELECT product_id, median(quote_eur) FROM quote.quote GROUP BY product_id FORMAT PrettyCompactMonoBlock\""
+
+down: ## Shuts down all the containers and removes their volume
+	docker-compose down --volumes --remove-orphans

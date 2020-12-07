@@ -2,7 +2,6 @@ CREATE DATABASE IF NOT EXISTS quote;
 
 use quote;
 
-
 -- This is the DDL definition for the dictionary
 -- that will fetch exchange rates from Redis
 
